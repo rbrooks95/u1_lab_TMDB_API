@@ -12,9 +12,24 @@ button.addEventListener("click", async () => {
     `https://api.themoviedb.org/3/search/movie?query=${titles}&api_key=${API_KEY}`
   );
   const result = response.data.results;
+  console.log(result);
+  //loop for movie title
   for (const i of result) {
+    const h1 = document.createElement("h1");
+    h1.innerText = i.original_title;
+    document.body.appendChild(h1);
     console.log(i.original_title);
   }
-  let dogPic = response.data.message;
+
+  for (const img of result) {
+    // const h1 = document.createElement("h1");
+    // h1.innerText = i.original_title;
+    // document.body.appendChild(h1);
+    // console.log(i.original_title);
+
+    const image = document.createElement("img");
+    //image.src = img.poster_path;
+    document.body.appendChild(image);
+  }
   //section.innerHTML = `<img src=${dogPic}>`;
 });
