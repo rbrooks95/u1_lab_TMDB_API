@@ -12,23 +12,18 @@ button.addEventListener("click", async () => {
     `https://api.themoviedb.org/3/search/movie?query=${titles}&api_key=${API_KEY}`
   );
   const result = response.data.results;
-  console.log(result);
+
   //loop for movie title
   for (const i of result) {
     const h1 = document.createElement("h1");
     h1.innerText = i.original_title;
-    console.log(i.original_title);
-    document.body.appendChild(h1);
 
-    // const h1 = document.createElement("h1");
-    // h1.innerText = i.original_title;
-    // document.body.appendChild(h1);
-    // console.log(i.original_title);
+    document.body.appendChild(h1);
 
     const image = document.createElement("div");
     let imgLink = `https://image.tmdb.org/t/p/w500/${i.poster_path}`;
     image.innerHTML = `<img src=${imgLink}>`;
-    console.log(imgLink);
+
     document.body.appendChild(image);
   }
 
