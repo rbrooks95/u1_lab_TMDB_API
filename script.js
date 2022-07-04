@@ -17,19 +17,20 @@ button.addEventListener("click", async () => {
   for (const i of result) {
     const h1 = document.createElement("h1");
     h1.innerText = i.original_title;
-    document.body.appendChild(h1);
     console.log(i.original_title);
-  }
+    document.body.appendChild(h1);
 
-  for (const img of result) {
     // const h1 = document.createElement("h1");
     // h1.innerText = i.original_title;
     // document.body.appendChild(h1);
     // console.log(i.original_title);
 
-    const image = document.createElement("img");
-    //image.src = img.poster_path;
+    const image = document.createElement("div");
+    let imgLink = `https://image.tmdb.org/t/p/w500/${i.poster_path}`;
+    image.innerHTML = `<img src=${imgLink}>`;
+    console.log(imgLink);
     document.body.appendChild(image);
   }
+
   //section.innerHTML = `<img src=${dogPic}>`;
 });
